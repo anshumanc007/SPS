@@ -27,13 +27,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Condensed&display=swap" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" type="text/css" href="style.css">
-
+  <script src="script.js"></script>
   <title>Anshuman Choudhary</title>
 </head>
 
-<body data-spy="scroll" data-target=".navbar">
+<body onload="getmsg()" data-spy="scroll" data-target=".navbar">
   <!--Navbar-->
-
   <div id="Header">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
       <div class="container">
@@ -170,26 +169,19 @@
   <!--Contact-->
   <div id="Contact">
     <div class="container">
-      <span class="text-white">Contact Me</span>
+      <span class="text-white">Comments</span>
       <hr>
       <div class="row">
         <div class="col">
           <div class="card bg-white">
             <div class="card-header">
-              <h4 class="my-4">Make a contact request</h4>
-              <form>
+              <h4 class="my-4">Make a comment</h4>
+              <form class="form-group" action="\comments" method="post">
                 <div class="form-group">
-                  <input type="text" placeholder="User Name" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <input type="email" placeholder="Email Id" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <textarea rows="4" cols="4" placeholder="Type your message here... " class="form-control"
-                    required></textarea>
-                </div>
-                <div class="form-group">
-                  <button class="btn btn-success text-white">Submit</button>
+                  <label>Enter Your Comment:</label>
+                  <textarea name="comment"></textarea>
+                  <br>
+                  <input type="submit" />
                 </div>
               </form>
             </div>
