@@ -16,10 +16,10 @@
 package com.google.sps.data;
 import lombok.AllArgsConstructor;
 
-
+//comment_object that contains all of the comment's attributes to be featured
 @AllArgsConstructor
-public final class commentobject 
-{
+public final class comment_object {
+    
   private final long id;
   private final String comment;
   private final long timestamp;

@@ -47,15 +47,18 @@ public class DataServlet extends HttpServlet
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException 
   {
 
+
     Query query = new Query(Constants.COMMENTOBJECT).addSort(Constants.TIMESTAMP, SortDirection.DESCENDING);
 
     PreparedQuery results = datastore.prepare(query);
 
     List<commentobject> comment_list= new ArrayList<>();
+
     for (Entity entity : results.asIterable()) {
       long id = entity.getKey().getId();
       String comment = (String) entity.getProperty(Constants.COMMENT);
       long timestamp = (long) entity.getProperty(Constants.TIMESTAMP);
+
       commentobject com_ = new commentobject(id, comment, timestamp);
       comment_list.add(com_);
     }
@@ -68,11 +71,13 @@ public class DataServlet extends HttpServlet
 {
     String comment = request.getParameter(Constants.COMMENT);
     long timestamp = System.currentTimeMillis();
+
     Entity commentEntity = new Entity(Constants.COMMENTOBJECT);
     commentEntity.setProperty(Constants.COMMENT, comment);
     commentEntity.setProperty(Constants.TIMESTAMP, timestamp);
       //storing the comments
     datastore.put(commentEntity);
+
 
    //sending response back to page
     response.sendRedirect("/");

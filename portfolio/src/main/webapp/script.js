@@ -29,6 +29,7 @@ function getmsg() {
 
 }
 
+
 /** Creates an element that represents a Commentobject*/
 function createCommElement(comment_) {
   const comment_Element = document.createElement('li');
